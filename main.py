@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from typing import List
 from pydantic import BaseModel
@@ -74,7 +74,7 @@ async def get_menu_item(item_id: int):
     for item in menu_items:
         if item.id == item_id:
             return item
-    return {"error": "Menu item not found"}
+    raise HTTPException(status_code=404, detail="Menu item not found")
 
 @app.get("/menu/category/{category}")
 async def get_menu_by_category(category: str):

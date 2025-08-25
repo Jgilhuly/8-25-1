@@ -35,6 +35,38 @@ The API will be available at `http://localhost:8000`
 
 Once running, visit `http://localhost:8000/docs` for interactive API documentation powered by Swagger UI.
 
+### Testing
+
+The project includes comprehensive unit tests for all API endpoints.
+
+#### Running Tests
+
+1. Make sure dependencies are installed (including test dependencies):
+```bash
+pip install -r requirements.txt
+```
+
+2. Run tests using the test runner script:
+```bash
+python3 run_tests.py
+```
+
+Or run tests directly with pytest:
+```bash
+python3 -m pytest test_main.py -v
+```
+
+#### Test Coverage
+
+The test suite includes:
+- ✅ Root endpoint testing
+- ✅ Menu endpoints (GET /menu, GET /menu/{id}, GET /menu/category/{category})
+- ✅ Data validation and structure tests
+- ✅ Edge cases (invalid IDs, non-existent categories)
+- ✅ Error handling (404 errors, validation errors)
+- ✅ CORS middleware verification
+- ✅ Basic performance testing
+
 ## Project Structure
 
 ```
@@ -42,6 +74,8 @@ Once running, visit `http://localhost:8000/docs` for interactive API documentati
 ├── styles.css          # Frontend styles
 ├── script.js           # Frontend JavaScript
 ├── main.py             # FastAPI backend
-├── requirements.txt    # Python dependencies
+├── test_main.py        # Unit tests for API endpoints
+├── run_tests.py        # Test runner script
+├── requirements.txt    # Python dependencies (including test dependencies)
 └── README.md          # This file
 ```
